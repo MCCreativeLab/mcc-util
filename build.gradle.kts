@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    `maven-publish`
+    id("maven-publish")
     id("io.papermc.paperweight.userdev") version "2.0.0-beta.16"
     id("xyz.jpenilla.run-paper") version "2.3.1" apply false // Adds runServer and runMojangMappedServer tasks for testing
 }
@@ -21,6 +21,16 @@ dependencies {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "verdox"
+            url = uri("https://repo.verdox.de/snapshots")
+            credentials {
+                username = (findProperty("reposilite.verdox.user") ?: System.getenv("REPO_USER")).toString()
+                password = (findProperty("reposilite.verdox.key") ?: System.getenv("REPO_PASSWORD")).toString()
+            }
+        }
+    }
     publications {
         create<MavenPublication>("maven") {
             pom {
