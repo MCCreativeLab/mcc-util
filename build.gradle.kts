@@ -15,7 +15,10 @@ repositories {
 }
 
 dependencies {
-    paperweight.devBundle("de.verdox.mccreativelab", providers.gradleProperty("version").get())
+    compileOnly("de.verdox.mccreativelab:mccreativelab-api:" + providers.gradleProperty("version").get())
+    compileOnly("de.verdox.mccreativelab.mcc-wrapper:api:" + providers.gradleProperty("version").get())
+    compileOnly("de.verdox.mccreativelab:mcc-pack-generator:" + providers.gradleProperty("version").get())
+    paperweight.paperDevBundle(providers.gradleProperty("version").get())
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }

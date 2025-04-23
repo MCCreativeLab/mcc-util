@@ -2,8 +2,6 @@ package de.verdox.mccreativelab;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Supplier;
-import de.verdox.mccreativelab.paper.extension.api.worldgen.WorldGenData;
-import de.verdox.mccreativelab.paper.extension.impl.worldgen.CraftWorldGenData;
 import de.verdox.mccreativelab.util.AsyncWorldCreation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -289,11 +287,6 @@ public class MCCUtilImpl implements MCCUtil {
         }
         serverPlayer.containerMenu.checkReachable = false;
         return serverPlayer.containerMenu.getBukkitView();
-    }
-
-    @Override
-    public WorldGenData getWorldGenData(@NotNull World world) {
-        return new CraftWorldGenData(((CraftWorld) world).getHandle());
     }
 
     @Override

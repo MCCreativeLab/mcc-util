@@ -1,10 +1,8 @@
 package de.verdox.mccreativelab;
 
 import com.google.common.base.Supplier;
-import de.verdox.mccreativelab.paper.extension.api.worldgen.WorldGenData;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -117,8 +115,6 @@ public interface MCCUtil {
      * @return The newly opened inventory view
      */
     @org.jetbrains.annotations.Nullable InventoryView openInventory(@NotNull Player player, @NotNull Inventory inventory, net.kyori.adventure.text.Component title);
-
-    WorldGenData getWorldGenData(@NotNull World world);
 
     boolean isMCCreativeLabServerSoftware();
 }
